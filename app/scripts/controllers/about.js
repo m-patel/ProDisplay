@@ -6,6 +6,7 @@
  * @description
  * # AboutCtrl
  * Controller of the proDisplayApp
+ * test Git
  */
 angular.module('proDisplayApp')
     .controller('AboutCtrl', function ($scope) {
