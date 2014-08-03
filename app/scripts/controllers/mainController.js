@@ -2,13 +2,16 @@
 'use strict';
 
 angular.module('proDisplayApp')
-    .controller('mainController', function ($scope, $location, ProductService) {
-        $scope.pageClass = 'page-main';
+    .controller('mainController', function ($scope, $rootScope, $location, DataService) {
+        $scope.pageClass = 'row-animate';
+
+        // get app info like title and description
+        $rootScope.appinfo = DataService.getAppInfo();
 
         // get list of all available products
-        $scope.items = ProductService.getAllProducts();
+        $scope.items = DataService.getAllItems();
 
-        $scope.setProductKey = function (key) {
-            ProductService.setProductKey(key);
+        $scope.setKey = function (key) {
+            DataService.setKey(key);
         };
     });

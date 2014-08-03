@@ -3,8 +3,8 @@
 
     angular.module('proDisplayApp')
         .controller('logoutController', function ($scope, $window, AuthService) {
-            $scope.logout = function(){
-                AuthService.Logout();
-            }
+
+            AuthService.Logout();
+
         });
 })(window.angular);

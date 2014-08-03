@@ -42,7 +42,7 @@ angular
         controller: 'loginController'
       })
       .when('/logout', {
-        template: 'Logging out...',
+            templateUrl: 'views/manage.html',
         controller: 'logoutController'
       })
       .otherwise({
@@ -50,5 +50,4 @@ angular
       });
   })
   .constant('fbURL', 'https://fiery-fire-1290.firebaseio.com/')
-  .constant('prodURL', 'https://fiery-fire-1290.firebaseio.com/products')
   .constant('loginRedirectPath', '/login');

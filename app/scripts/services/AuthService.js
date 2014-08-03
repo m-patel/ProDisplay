@@ -4,16 +4,15 @@
 (function (angular) {
     'use strict';
 
-    angular.module('proDisplayApp').service('AuthService', function ($rootScope, $firebase, $firebaseSimpleLogin, fbURL, prodURL, toastr) {
+    angular.module('proDisplayApp').service('AuthService', function ($rootScope, $location, $firebase, $firebaseSimpleLogin, fbURL, toastr) {
 
         var fbRef = new Firebase(fbURL);
-        var prodRef = new Firebase(prodURL);
 
         var simpleLogin = $firebaseSimpleLogin(fbRef);
-        var user = {
-            email: '',
-            password: ''
-        };
+//        var user = {
+//            email: '',
+//            password: ''
+//        };
 
         return {
             Login: function (user) {
@@ -39,6 +38,19 @@
             },
             Logout: function(){
                 simpleLogin.$logout();
+            },
+            CheckUserSession: function () {
+                // find better way of checking if user is in logged in??
+                var auth = new FirebaseSimpleLogin(fbRef, function (error, user) {
+                    if (user) {
+                        // user authenticated with Firebase
+                        console.log(user);
+                    } else {
+                        // user is logged out
+                        console.log('logged out');
+                        $location.path('/#/main').replace();
+                    }
+                });
             }
         }
     });

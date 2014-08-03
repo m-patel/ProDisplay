@@ -2,28 +2,34 @@
 'use strict';
 
 angular.module('proDisplayApp')
-    .controller('manageController', function ($scope, $timeout, ngDialog, ProductService) {
+    .controller('manageController', function ($scope, $timeout, ngDialog, DataService, AuthService) {
         $scope.addBtn = true;
         $scope.pageClass = 'page-manage';
 
+        AuthService.CheckUserSession();
+
+        $scope.items = DataService.getAllItems();
+
         // Add new
         $scope.addItem = function (item) {
-            ProductService.addProduct(item);
+            DataService.addItem(item);
         };
 
         $scope.removeItem = function (key) {
-            ProductService.removeItem(key);
+            DataService.removeItem(key);
         };
 
-        $scope.editItem = function (key, item) {
+        $scope.editMode = function (key, item) {
+            $scope.key = '';
             $scope.addBtn = false;
-            //$scope.item = {};
+            $scope.item = {};
             $scope.item = item;
-        }
+            $scope.key = key;
+        };
 
-        $scope.updateItem = function (key) {
-            $scope.items.$save(key);
+        $scope.updateItem = function (item) {
+            DataService.updateItem($scope.key, item);
             $scope.item = {};
             $scope.addBtn = true;
-        }
+        };
     });

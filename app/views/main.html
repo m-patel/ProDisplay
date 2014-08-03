@@ -1,20 +1,20 @@
 <div class="jumbotron">
-  <p class="lead">
+    <p class="lead">
 
-		<div class="span3" data-ng-repeat="(key,item) in items">
-			<div class="box aligncenter">
-				<div class="halftop">
-					<h4><strong>{{item.name}}</strong></h4>
-					<!-- <i class="icon-desktop icon-4x"></i> -->
-				</div>
-				<!--<p>{{item.icon}}</p>-->
-				<p><img class="imglist" ng-src="{{item.icon}}" alt=""></p>
-<!-- 				<p>
-					 {{item.description | limitTo:20}} ...
-				</p> -->
-				<a class="btn btn-info" href="/#/details" data-ng-click="setProductKey(key)">Learn more</a>
-			</div>
-		</div>
-  </p>
-<!--   <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p> -->
+    <div class="span3" data-ng-repeat="(key,item) in items">
+        <div class="box aligncenter">
+            <div class="halftop">
+                <h4><strong>{{item.name}}</strong></h4>
+                <!-- <i class="icon-desktop icon-4x"></i> -->
+            </div>
+            <!--<p>{{item.icon}}</p>-->
+            <p><img class="imglist" ng-src="{{item.icon}}" alt=""></p>
+            <!-- 				<p>
+                                 {{item.description | limitTo:20}} ...
+                            </p> -->
+            <a class="btn btn-info" href="/#/details" data-ng-click="setKey(key)">Learn more</a>
+        </div>
+    </div>
+    </p>
+    <!--   <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p> -->
 </div>
